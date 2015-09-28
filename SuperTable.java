@@ -59,10 +59,10 @@ public class SuperTable{
 
 	   Put superman = new Put(Bytes.toBytes("row1"));
 	   
-	   superman.add(Bytes.toBytes("personal"), Bytes.toBytes("hero"), Bytes.toBytes("superman");	   
-	   superman.add(Bytes.toBytes("personal"), Bytes.toBytes("personal"), Bytes.toBytes("strength");
-	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("name"), Bytes.toBytes("clark");
-	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("xp"), Bytes.toBytes("100");
+	   superman.add(Bytes.toBytes("personal"), Bytes.toBytes("hero"), Bytes.toBytes("superman"));	   
+	   superman.add(Bytes.toBytes("personal"), Bytes.toBytes("personal"), Bytes.toBytes("strength"));
+	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("name"), Bytes.toBytes("clark"));
+	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("xp"), Bytes.toBytes("100"));
 	   
 	   Put batman = new Put(Bytes.toBytes("row2"));
 	   
@@ -72,7 +72,6 @@ public class SuperTable{
 	   batman.add(Bytes.toBytes("professional"), Bytes.toBytes("xp"), Bytes.toBytes("50"));
 
 	   Put wolverine = new Put(Bytes.toBytes("row3"));
-	   
 	   wolverine.add(Bytes.toBytes("personal"), Bytes.toBytes("hero"), Bytes.toBytes("wolverine"));
 	   wolverine.add(Bytes.toBytes("personal"), Bytes.toBytes("power"), Bytes.toBytes("healing"));
 	   wolverine.add(Bytes.toBytes("professional"), Bytes.toBytes("name"), Bytes.toBytes("logan"));
