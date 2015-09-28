@@ -64,22 +64,54 @@ public class SuperTable{
 	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("name"), Bytes.toBytes("clark");
 	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("xp"), Bytes.toBytes("100");
 	   
-      // Save the table
+	   Put batman = new Put(Bytes.toBytes("row2"));
+	   
+	   batman.add(Bytes.toBytes("personal"), Bytes.toBytes("hero"), Bytes.toBytes("batman"));
+	   batman.add(Bytes.toBytes("personal"), Bytes.toBytes("power"), Bytes.toBytes("money"));
+	   batman.add(Bytes.toBytes("professional"), Bytes.toBytes("name"), Bytes.toBytes("bruce"));
+	   batman.add(Bytes.toBytes("professional"), Bytes.toBytes("xp"), Bytes.toBytes("50"));
+
+	   Put wolverine = new Put(Bytes.toBytes("row3"));
+	   
+	   wolverine.add(Bytes.toBytes("personal"), Bytes.toBytes("hero"), Bytes.toBytes("wolverine"));
+	   wolverine.add(Bytes.toBytes("personal"), Bytes.toBytes("power"), Bytes.toBytes("healing"));
+	   wolverine.add(Bytes.toBytes("professional"), Bytes.toBytes("name"), Bytes.toBytes("logan"));
+	   wolverine.add(Bytes.toBytes("professional"), Bytes.toBytes("xp"), Bytes.toBytes("75"));
+      
+	   // Save the table
+	   
+	    hTable.put(superman);
+	    hTable.put(batman);
+	    hTable.put(wolverine);
 	
       // Close table
+	    
+	    hTable.close();
 
       // Instantiate the Scan class
+	    
+	    Scan scan = new Scan();
      
       // Scan the required columns
+	    
+	    scan.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("heros"));
 
       // Get the scan result
+	    
+	    ResultScanner scanner = hTable.getScanner(scan);
 
       // Read values from scan result
       // Print scan result
  
+	    for (Result result = scanner.next(); result != null; result = scanner.next())
+	    	System.out.println("Got row: " + result);
+	    
       // Close the scanner
+	    
+	    scanner.close();
    
       // Htable closer
+	    hTable.close();
    }
 }
 
