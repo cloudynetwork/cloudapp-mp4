@@ -32,7 +32,7 @@ public class SuperTable{
       
       // Instantiate table descriptor class
 	   
-	   HTableDescriptor tableDescriptor = new HTableDescriptor(Table);
+	   HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("powers"));
       
 	   // Add column families to table descriptor
 
