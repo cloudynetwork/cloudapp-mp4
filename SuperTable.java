@@ -28,7 +28,7 @@ public class SuperTable{
 
       // Instaniate HBaseAdmin class
 	   
-	   HbaseAdmin admin = new HBaseAdmin(config);
+	   HBaseAdmin admin = new HBaseAdmin(config);
       
       // Instantiate table descriptor class
 	   
