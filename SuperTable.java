@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.ObjectOutputStream.PutField;
 
 import org.apache.hadoop.conf.Configuration;
 
@@ -16,23 +17,38 @@ import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
 
 import org.apache.hadoop.hbase.util.Bytes;
+import org.xml.sax.HandlerBase;
 
 public class SuperTable{
 
    public static void main(String[] args) throws IOException {
 
       // Instantiate Configuration class
+	   Configuration config = HBaseConfiguration.create();
 
       // Instaniate HBaseAdmin class
+	   
+	   HbaseAdmin admin = new HBaseAdmin(config);
       
       // Instantiate table descriptor class
+	   
+	   HTableDescriptor tableDescriptor = new HTableDescriptor(Table);
+      
+	   // Add column families to table descriptor
 
-      // Add column families to table descriptor
+	   tableDescriptor.addFamily(new HColumnDescriptor("personal"));
+	   tableDescriptor.addFamily(new HColumnDescriptor("professional"));
+	   System.out.println("Adding col families.");
 
       // Execute the table through admin
+	   
+	   admin.createTable(tableDescriptor);
+	   System.out.println("Created table.");
 
       // Instantiating HTable class
-     
+	   
+	   HTable hTable = new HTable(config, "powers");
+	   
       // Repeat these steps as many times as necessary
 
 	      // Instantiating Put class
@@ -41,6 +57,13 @@ public class SuperTable{
       	      // Add values using add() method
               // Hints: Accepts column family name, qualifier/row name ,value
 
+	   Put superman = new Put(Bytes.toBytes("row1"));
+	   
+	   superman.add(Bytes.toBytes("personal"), Bytes.toBytes("hero"), Bytes.toBytes("superman");	   
+	   superman.add(Bytes.toBytes("personal"), Bytes.toBytes("personal"), Bytes.toBytes("strength");
+	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("name"), Bytes.toBytes("clark");
+	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("xp"), Bytes.toBytes("100");
+	   
       // Save the table
 	
       // Close table
