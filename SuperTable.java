@@ -58,7 +58,7 @@ public class SuperTable{
 	   Put superman = new Put(Bytes.toBytes("row1"));
 	   
 	   superman.add(Bytes.toBytes("personal"), Bytes.toBytes("hero"), Bytes.toBytes("superman"));	   
-	   superman.add(Bytes.toBytes("personal"), Bytes.toBytes("personal"), Bytes.toBytes("strength"));
+	   superman.add(Bytes.toBytes("personal"), Bytes.toBytes("power"), Bytes.toBytes("strength"));
 	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("name"), Bytes.toBytes("clark"));
 	   superman.add(Bytes.toBytes("professional"), Bytes.toBytes("xp"), Bytes.toBytes("100"));
 	   
