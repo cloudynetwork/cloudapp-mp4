@@ -85,7 +85,7 @@ public class SuperTable{
 	
       // Close table
 	    
-	    hTable.close();
+	    hTable.flushCommits();
 
       // Instantiate the Scan class
 	    
@@ -93,7 +93,7 @@ public class SuperTable{
      
       // Scan the required columns
 	    
-	    scan.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("heros"));
+	    scan.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("hero"));
 
       // Get the scan result
 	    
